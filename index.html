@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./src/output.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <title>Weather App</title>
+  </head>
+  <body
+    class="bg-[url('/assets/bg.jpg')] bg-cover backdrop-blur-xs bg-center h-screen w-full bg-no-repeat flex justify-center align-middle"
+  >
+    <div
+      class="m-15 rounded-3xl bg-linear-180 backdrop-blur-xs from-slate-300 to-slate-900 relative"
+    >
+      <div class="flex justify-center align-middle static">
+        <input
+          type="text"
+          placeholder="Search"
+          class="m-10 bg-slate-700 rounded-full pl-10 w-full h-20 text-3xl text-white focus:outline-5 focus:outline-slate-600"
+        />
+        <ion-icon
+          name="search"
+          class="text-white size-10 cursor-pointer absolute right-16 top-15"
+        ></ion-icon>
+      </div>
+
+      <!-- Data Showing section -->
+      <section class="hidden">
+        <div class="flex justify-center align-middle font-[Poppins]">
+          <img
+            src="./assets/message/search-city.png"
+            alt="Search_City"
+            class="mt-20 ml-20 mr-20 mb-5 size-100 p-5"
+          />
+        </div>
+        <h1
+          class="flex justify-center align-middle text-5xl text-white font-bold"
+        >
+          Search City
+        </h1>
+        <p
+          class="flex justify-center align-middle text-center text-3xl text-white mx-10 px-15 mt-2"
+        >
+          Find out the weather condition of any city
+        </p>
+      </section>
+
+      <!--  -->
+
+      <section class="mx-4">
+        <!-- 1st Div -->
+        <div class="flex align-middle p-4 text-white font-bold font-[Poppins]">
+          <ion-icon name="location-outline" class="text-4xl mr-1"></ion-icon>
+          <h4 class="text-2xl pt-1">Lalitpur</h4>
+          <h4 class="text-xl translate-x-[110%] pt-1">Mon, 23 Jun</h4>
+        </div>
+        <!-- 2nd Div -->
+        <div class="p-4 flex justify-between font-[Poppins]">
+          <img src="./assets/weather/clouds.svg" alt="Clouds" class="size-40" />
+          <div
+            class="pl-10 flex flex-col justify-evenly text-white font-[Poppins] text-2xl font-bold"
+          >
+            <h4 class="pl-5">29&nbsp;&#176;C</h4>
+            <h4 class="">Clouds</h4>
+          </div>
+        </div>
+        <!-- 3rd Div -->
+        <div
+          class="grid grid-flow-col grid-col-4 p-4 text-white font-[Poppins] font-bold"
+        >
+          <ion-icon name="water-outline" class="size-12"></ion-icon>
+          <div class="flex flex-col">
+            <h5>Humidity</h5>
+            <h5>55%</h5>
+          </div>
+          <img
+            src="./assets/weather/wind_speed.svg"
+            alt="Wind"
+            class="size-12 ml-20"
+          />
+          <div class="flex flex-col">
+            <h5 class="">Wind Speed</h5>
+            <h5>2&nbsp;M/s</h5>
+          </div>
+        </div>
+        <!-- 4th Div -->
+            <div id="forecast-item-container" class="flex flex-wrap gap-5 p-4 overflow-x-scroll">
+            <div class="forecast-cards  bg-white/10 backdrop-blur-lg border-2 rounded-2xl">
+              <h5>05 Aug</h5>
+              <img src="./assets/weather/thunderstorm.svg" alt="Weather" />
+              <h5>29&nbsp;&#176;</h5>
+            </div>
+            <div class="forecast-cards bg-white/10 backdrop-blur-lg border-2 rounded-2xl">
+              <h5>05 Aug</h5>
+              <img src="./assets/weather/thunderstorm.svg" alt="Weather" />
+              <h5>29&nbsp;&#176;</h5>
+            </div>
+            <div class="forecast-cards bg-white/10 backdrop-blur-lg border-2 rounded-2xl">
+              <h5>05 Aug</h5>
+              <img src="./assets/weather/thunderstorm.svg" alt="Weather" />
+              <h5>29&nbsp;&#176;</h5>
+            </div>
+            <div class="forecast-cards bg-white/10 backdrop-blur-lg border-2 rounded-2xl">
+              <h5>05 Aug</h5>
+              <img src="./assets/weather/thunderstorm.svg" alt="Weather" />
+              <h5>29&nbsp;&#176;</h5>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
