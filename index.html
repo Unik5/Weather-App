@@ -18,19 +18,20 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    <script src="script.js" defer></script> 
     <title>Weather App</title>
   </head>
   <body
     class="bg-[url('/assets/bg.jpg')] bg-cover backdrop-blur-xs bg-center h-screen w-full bg-no-repeat flex justify-center align-middle"
   >
     <div
-      class="m-15 rounded-3xl bg-linear-180 backdrop-blur-xs from-slate-300 to-slate-900 relative"
+      class="m-15 translate-y-[10%] max-w-[475px] max-h-[850px] bg-white/20 bg-cover backdrop-blur-lg rounded-3xl relative "
     >
       <div class="flex justify-center align-middle static">
         <input
           type="text"
           placeholder="Search"
-          class="m-10 bg-slate-700 rounded-full pl-10 w-full h-20 text-3xl text-white focus:outline-5 focus:outline-slate-600"
+          class="m-10 bg-white/30 rounded-full pl-10 w-full h-20 text-3xl text-white focus:outline-5 focus:outline-white/50"
         />
         <ion-icon
           name="search"
@@ -38,35 +39,56 @@
         ></ion-icon>
       </div>
 
-      <!-- Data Showing section -->
+      <!-- Search City Section -->
       <section class="hidden">
         <div class="flex justify-center align-middle font-[Poppins]">
           <img
             src="./assets/message/search-city.png"
             alt="Search_City"
-            class="mt-20 ml-20 mr-20 mb-5 size-100 p-5"
+            class="mt-20 ml-20 mr-20 mb-5 size-80 p-5"
           />
         </div>
         <h1
-          class="flex justify-center align-middle text-5xl text-white font-bold"
+          class="flex justify-center align-middle text-4xl text-white font-bold"
         >
           Search City
         </h1>
         <p
-          class="flex justify-center align-middle text-center text-3xl text-white mx-10 px-15 mt-2"
+          class="flex justify-center align-middle text-center text-2xl text-white mx-10 px-15 mt-5"
         >
           Find out the weather condition of any city
         </p>
       </section>
 
-      <!--  -->
+      <!-- 404 not found section -->
+      <section class="">
+        <div class="flex justify-center align-middle font-[Poppins]">
+          <img
+            src="./assets/message/not-found.png"
+            alt="Search_City"
+            class="mt-20 ml-20 mr-20 mb-5 size-80 p-1"
+          />
+        </div>
+        <h1
+          class="flex justify-center align-middle text-4xl text-white font-bold"
+        >
+          Search City
+        </h1>
+        <p
+          class="flex justify-center align-middle text-center text-2xl text-white mx-10 px-15 mt-5"
+        >
+          Find out the weather condition of any city
+        </p>
+      </section>
 
-      <section class="mx-4">
+      <!-- Data Showing Section -->
+
+      <section class="mx-4 hidden ">
         <!-- 1st Div -->
         <div class="flex align-middle p-4 text-white font-bold font-[Poppins]">
           <ion-icon name="location-outline" class="text-4xl mr-1"></ion-icon>
           <h4 class="text-2xl pt-1">Lalitpur</h4>
-          <h4 class="text-xl translate-x-[110%] pt-1">Mon, 23 Jun</h4>
+          <h4 class="text-xl translate-x-[125%] pt-1">Mon, 23 Jun</h4>
         </div>
         <!-- 2nd Div -->
         <div class="p-4 flex justify-between font-[Poppins]">
@@ -80,7 +102,7 @@
         </div>
         <!-- 3rd Div -->
         <div
-          class="grid grid-flow-col grid-col-4 p-4 text-white font-[Poppins] font-bold"
+          class="grid grid-flow-col grid-col-4 p-4 my-5 text-white font-[Poppins] font-bold"
         >
           <ion-icon name="water-outline" class="size-12"></ion-icon>
           <div class="flex flex-col">
@@ -98,30 +120,36 @@
           </div>
         </div>
         <!-- 4th Div -->
-            <div id="forecast-item-container" class="flex flex-wrap gap-5 p-4 overflow-x-scroll">
-            <div class="forecast-cards  bg-white/10 backdrop-blur-lg border-2 rounded-2xl">
-              <h5>05 Aug</h5>
+            <div id="forecast-item-container" class="flex p-4 space-x-4 text-white font-[Poppins] font-extrabold overflow-x-auto">
+            <div class="forecast-cards flex flex-col p-3 flex-shrink-0 bg-white/10 backdrop-blur-lg rounded-2xl">
+              <h5 class="px-6">05 Aug</h5>
               <img src="./assets/weather/thunderstorm.svg" alt="Weather" />
-              <h5>29&nbsp;&#176;</h5>
+              <h5 class="px-10 pt-2">29&nbsp;&#176;</h5>
             </div>
-            <div class="forecast-cards bg-white/10 backdrop-blur-lg border-2 rounded-2xl">
-              <h5>05 Aug</h5>
+            <div class="forecast-cards flex flex-col p-2 flex-shrink-0 bg-white/10 backdrop-blur-lg rounded-2xl">
+              <h5 class="px-6">05 Aug</h5>
               <img src="./assets/weather/thunderstorm.svg" alt="Weather" />
-              <h5>29&nbsp;&#176;</h5>
+              <h5 class="px-10 pt-2">29&nbsp;&#176;</h5>
             </div>
-            <div class="forecast-cards bg-white/10 backdrop-blur-lg border-2 rounded-2xl">
-              <h5>05 Aug</h5>
+            <div class="forecast-cards flex flex-col p-2 flex-shrink-0 bg-white/10 backdrop-blur-lg  rounded-2xl">
+              <h5 class="px-6">05 Aug</h5>
               <img src="./assets/weather/thunderstorm.svg" alt="Weather" />
-              <h5>29&nbsp;&#176;</h5>
+              <h5 class="px-10 pt-2">29&nbsp;&#176;</h5>
             </div>
-            <div class="forecast-cards bg-white/10 backdrop-blur-lg border-2 rounded-2xl">
-              <h5>05 Aug</h5>
+            <div class="forecast-cards flex flex-col p-2 flex-shrink-0 bg-white/10 backdrop-blur-lg  rounded-2xl">
+              <h5 class="px-6">05 Aug</h5>
               <img src="./assets/weather/thunderstorm.svg" alt="Weather" />
-              <h5>29&nbsp;&#176;</h5>
+              <h5 class="px-10 pt-2">29&nbsp;&#176;</h5>
+            </div>
+            <div class="forecast-cards flex flex-col p-2 flex-shrink-0 bg-white/10 backdrop-blur-lg  rounded-2xl">
+              <h5 class="px-6">05 Aug</h5>
+              <img src="./assets/weather/thunderstorm.svg" alt="Weather" />
+              <h5 class="px-10 pt-2">29&nbsp;&#176;</h5>
             </div>
           </div>
         </div>
       </section>
+
     </div>
   </body>
 </html>
