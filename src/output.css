@@ -264,11 +264,38 @@
   .h-20 {
     height: calc(var(--spacing) * 20);
   }
+  .h-full {
+    height: 100%;
+  }
   .h-screen {
     height: 100vh;
   }
+  .max-h-\[1\/2\] {
+    max-height: 1/2;
+  }
+  .max-h-\[3\/4\] {
+    max-height: 3/4;
+  }
+  .max-h-\[9\/10\] {
+    max-height: 9/10;
+  }
+  .max-h-\[10vh\] {
+    max-height: 10vh;
+  }
+  .max-h-\[60vh\] {
+    max-height: 60vh;
+  }
+  .max-h-\[70vh\] {
+    max-height: 70vh;
+  }
+  .max-h-\[650px\] {
+    max-height: 650px;
+  }
   .max-h-\[850px\] {
     max-height: 850px;
+  }
+  .max-h-\[850vh\] {
+    max-height: 850vh;
   }
   .w-full {
     width: 100%;
@@ -501,13 +528,6 @@
     &:hover {
       @media (hover: hover) {
         transition-delay: 50ms;
-      }
-    }
-  }
-  .hover\:delay-100 {
-    &:hover {
-      @media (hover: hover) {
-        transition-delay: 100ms;
       }
     }
   }
