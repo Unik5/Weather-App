@@ -1,6 +1,6 @@
 # netlify.toml
 [build]
-  command = "echo \"export const WEATHER_API_KEY = '${WEATHER_API_KEY}';\" > config.js"
+  command = "echo \"export const apiKey = '${apiKey}';\" > config.js"
   publish = "."
 
 [build.environment]
