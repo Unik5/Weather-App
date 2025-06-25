@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./src/output.css" rel="stylesheet" />
+    <link href="./src/scrollbar.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,29 +19,29 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
-    <script src="script.js" defer></script> 
+    <script type='module' src="script.js" defer></script> 
     <title>Weather App</title>
   </head>
   <body
-    class="bg-[url('/assets/bg.jpg')] bg-cover backdrop-blur-xs bg-center h-screen w-full bg-no-repeat flex justify-center align-middle"
+    class="bg-[url('/assets/bg.jpg')] bg-cover backdrop-blur-sm bg-center h-screen w-full bg-no-repeat flex justify-center align-middle"
   >
     <div
-      class="m-15 translate-y-[10%] max-w-[475px] max-h-[850px] bg-white/20 bg-cover backdrop-blur-lg rounded-3xl relative "
+      class="m-15 translate-y-[10%] max-w-[475px] max-h-[850px] bg-white/25 bg-cover backdrop-blur-lg rounded-3xl relative "
     >
       <div class="flex justify-center align-middle static">
         <input
           type="text"
           placeholder="Search"
-          class="m-10 bg-white/30 rounded-full pl-10 w-full h-20 text-3xl text-white focus:outline-5 focus:outline-white/50"
+          class="cityInput m-10 bg-white/30 rounded-full pl-10 w-full h-20 text-3xl text-white focus:outline-5 focus:outline-white/50"
         />
         <ion-icon
           name="search"
-          class="text-white size-10 cursor-pointer absolute right-16 top-15"
+          class="searchBtn text-white size-10 cursor-pointer absolute right-16 top-15"
         ></ion-icon>
       </div>
 
       <!-- Search City Section -->
-      <section class="hidden">
+      <section id="searchCity" class="">
         <div class="flex justify-center align-middle font-[Poppins]">
           <img
             src="./assets/message/search-city.png"
@@ -61,7 +62,7 @@
       </section>
 
       <!-- 404 not found section -->
-      <section class="">
+      <section id="notFound" class="hidden">
         <div class="flex justify-center align-middle font-[Poppins]">
           <img
             src="./assets/message/not-found.png"
@@ -82,67 +83,66 @@
       </section>
 
       <!-- Data Showing Section -->
-
-      <section class="mx-4 hidden ">
-        <!-- 1st Div -->
-        <div class="flex align-middle p-4 text-white font-bold font-[Poppins]">
+      <section id='dataShowing' class="mx-4 hidden">
+        <!-- 1st Div location and date part-->
+        <div class="flex items-center p-4 text-white font-bold font-[Poppins]">
           <ion-icon name="location-outline" class="text-4xl mr-1"></ion-icon>
-          <h4 class="text-2xl pt-1">Lalitpur</h4>
-          <h4 class="text-xl translate-x-[125%] pt-1">Mon, 23 Jun</h4>
+          <h4 class="locationName text-2xl pt-1">Lalitpur</h4>
+          <h4 class="currentDate text-xl ml-auto pt-1">Mon, 23 Jun</h4>
         </div>
-        <!-- 2nd Div -->
+        <!-- 2nd Div summary part -->
         <div class="p-4 flex justify-between font-[Poppins]">
-          <img src="./assets/weather/clouds.svg" alt="Clouds" class="size-40" />
+          <img src="./assets/weather/clouds.svg" alt="Clouds" class="size-40 weatherSummaryImg" />
           <div
             class="pl-10 flex flex-col justify-evenly text-white font-[Poppins] text-2xl font-bold"
           >
-            <h4 class="pl-5">29&nbsp;&#176;C</h4>
-            <h4 class="">Clouds</h4>
+            <h4 class="temperature ml-auto">29 °C</h4>
+            <h4 class="sky-conditions ml-auto">Clouds</h4>
           </div>
         </div>
-        <!-- 3rd Div -->
+        <!-- 3rd Div;wind ra humidity part -->
         <div
           class="grid grid-flow-col grid-col-4 p-4 my-5 text-white font-[Poppins] font-bold"
         >
           <ion-icon name="water-outline" class="size-12"></ion-icon>
           <div class="flex flex-col">
             <h5>Humidity</h5>
-            <h5>55%</h5>
+            <h5 class="humidity">55%</h5>
           </div>
           <img
-            src="./assets/weather/wind_speed.svg"
+            src="./assets/weather/wind_speed_updated.svg"
             alt="Wind"
-            class="size-12 ml-20"
+            class="size-13 ml-25  "
           />
-          <div class="flex flex-col">
-            <h5 class="">Wind Speed</h5>
-            <h5>2&nbsp;M/s</h5>
+          <div class="flex flex-col ml-auto">
+            <h5>Wind Speed</h5>
+            <h5 class="windSpeed">2&nbsp;M/s</h5>
           </div>
         </div>
-        <!-- 4th Div -->
-            <div id="forecast-item-container" class="flex p-4 space-x-4 text-white font-[Poppins] font-extrabold overflow-x-auto">
-            <div class="forecast-cards flex flex-col p-3 flex-shrink-0 bg-white/10 backdrop-blur-lg rounded-2xl">
-              <h5 class="px-6">05 Aug</h5>
+        <!-- 4th Div; last ko forcast part -->
+            <div id="forecast-item-container" class="flex p-4 space-x-4 text-white font-[Poppins] font-extrabold rounded-2xl overflow-x-auto scrollbar-rounded">
+            <div class="forecast-cards flex flex-col p-3 flex-shrink-0 bg-white/20 backdrop-blur-lg rounded-2xl">
+              <h5 class="px-8">05 Aug</h5>
               <img src="./assets/weather/thunderstorm.svg" alt="Weather" />
               <h5 class="px-10 pt-2">29&nbsp;&#176;</h5>
             </div>
-            <div class="forecast-cards flex flex-col p-2 flex-shrink-0 bg-white/10 backdrop-blur-lg rounded-2xl">
-              <h5 class="px-6">05 Aug</h5>
+            <div class="forecast-cards flex flex-col p-2 flex-shrink-0 bg-white/20 backdrop-blur-lg rounded-2xl hover:bg-white/30 hover:delay-50">
+              <h5 class="px-8">05 Aug</h5>
               <img src="./assets/weather/thunderstorm.svg" alt="Weather" />
               <h5 class="px-10 pt-2">29&nbsp;&#176;</h5>
             </div>
-            <div class="forecast-cards flex flex-col p-2 flex-shrink-0 bg-white/10 backdrop-blur-lg  rounded-2xl">
-              <h5 class="px-6">05 Aug</h5>
+            <div class="forecast-cards flex flex-col p-2 flex-shrink-0 bg-white/20 backdrop-blur-lg  rounded-2xl hover:bg-white/30 hover:delay-50">
+              <h5 class="px-8">05 Aug</h5>
               <img src="./assets/weather/thunderstorm.svg" alt="Weather" />
               <h5 class="px-10 pt-2">29&nbsp;&#176;</h5>
             </div>
-            <div class="forecast-cards flex flex-col p-2 flex-shrink-0 bg-white/10 backdrop-blur-lg  rounded-2xl">
-              <h5 class="px-6">05 Aug</h5>
+            <div class="forecast-cards flex flex-col p-2 flex-shrink-0 bg-white/20 backdrop-blur-lg  rounded-2xl hover:bg-white/30 hover:delay-50">
+              <h5 class="px-8">05 Aug</h5>
               <img src="./assets/weather/thunderstorm.svg" alt="Weather" />
               <h5 class="px-10 pt-2">29&nbsp;&#176;</h5>
             </div>
-            <div class="forecast-cards flex flex-col p-2 flex-shrink-0 bg-white/10 backdrop-blur-lg  rounded-2xl">
-              <h5 class="px-6">05 Aug</h5>
+            <div class="forecast-cards flex flex-col p-2 flex-shrink-0 bg-white/20 backdrop-blur-lg  rounded-2xl hover:bg-white/30 hover:delay-50">
+              <h5 class="px-8">05 Aug</h5>
               <img src="./assets/weather/thunderstorm.svg" alt="Weather" />
               <h5 class="px-10 pt-2">29&nbsp;&#176;</h5>
             </div>

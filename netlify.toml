@@ -1,0 +1,7 @@
+# netlify.toml
+[build]
+  command = "echo \"export const WEATHER_API_KEY = '${WEATHER_API_KEY}';\" > config.js"
+  publish = "."
+
+[build.environment]
+  WEATHER_API_KEY = "will-be-overwritten-by-Netlify"
